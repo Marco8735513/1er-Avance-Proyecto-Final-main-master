@@ -356,3 +356,6 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 });
+
+//Probar GET /projects/:projectId 
+//getPublicProjects("251940").then(console.log).catch(console.error);
