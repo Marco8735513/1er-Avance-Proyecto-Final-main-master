@@ -1,0 +1,203 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    background: #f0f2f5; /* Un fondo más claro y profesional */
+    color: #333;
+    line-height: 1.6;
+}
+
+/* --- Header Principal --- */
+.main-header {
+    background-color: #ffffff;
+    padding: 1rem 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    margin-bottom: 2rem;
+}
+
+.main-header h2 {
+    color: #1c3f95;
+    font-size: 1.5rem;
+}
+
+/* --- Contenedor Principal --- */
+main {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 2rem;
+    display: grid;
+    grid-template-columns: 1fr 2fr; /* Columna del formulario más pequeña */
+    gap: 2rem;
+}
+
+/* --- Formulario de Proyectos --- */
+.form-container {
+    background-color: #ffffff;
+    padding: 2rem;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+    align-self: start; /* Para que no se estire */
+}
+
+.form-container h3 {
+    color: #1c3f95;
+    margin-bottom: 1.5rem;
+    font-size: 1.4rem;
+}
+
+#project-form input[type="text"],
+#project-form textarea {
+    width: 100%;
+    padding: 0.75rem;
+    margin-bottom: 1rem;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 1rem;
+}
+
+#project-form textarea {
+    min-height: 100px;
+    resize: vertical;
+}
+
+/* --- Botones --- */
+button {
+    padding: 0.75rem 1.5rem;
+    border: none;
+    border-radius: 5px;
+    color: white;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.2s;
+}
+
+#project-form button {
+    width: 100%;
+    margin-bottom: 0.5rem;
+}
+
+#project-form button[type="submit"] {
+    background-color: #2e59c5;
+}
+
+#project-form button[type="submit"]:hover {
+    background-color: #2547a0;
+}
+
+#cancel-edit-btn {
+    width: 100%;
+    background-color: #6c757d;
+}
+
+#cancel-edit-btn.hidden {
+    display: none;
+}
+
+/* --- Lista de Proyectos --- */
+.projects-container {
+    background-color: #ffffff;
+    padding: 2rem;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+.projects-container h3 {
+    color: #1c3f95;
+    margin-bottom: 1.5rem;
+    font-size: 1.4rem;
+}
+
+#projects-list {
+    display: grid;
+    gap: 1.5rem;
+}
+
+.project-item {
+    border: 1px solid #e0e0e0;
+    padding: 1.5rem;
+    border-radius: 8px;
+    transition: box-shadow 0.3s;
+}
+
+.project-item:hover {
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.project-item h4 {
+    color: #2e59c5;
+    margin-bottom: 0.5rem;
+}
+
+.project-item p {
+    margin-bottom: 0.5rem;
+}
+
+.project-item strong {
+    color: #555;
+}
+
+.project-item a {
+    color: #2e59c5;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.show-projects {
+  margin-bottom: 1rem; 
+  background-color: #28a745;
+}
+
+.project-actions {
+    margin-top: 1rem;
+    display: flex;
+    gap: 0.5rem;
+}
+
+.edit-btn {
+    background-color: #17a2b8; /* Cian */
+}
+
+.delete-btn {
+    background-color: #dc3545; /* Rojo */
+}
+
+.refresh-projects {
+    background-color: #17a2b8; /* Cian para la acción de actualizar */
+    margin-top: 1rem; /* Espacio superior */
+}
+
+.delete-projects {
+    background-color: #dc3545; /* Rojo para la acción de eliminar */
+    margin-top: 0.5rem; /* Espacio superior */
+}
+
+.delete-projects {
+    background-color: #dc3545; /* Rojo para la acción de eliminar */
+    margin-top: 0.5rem; /* Espacio superior */
+}
+
+/* --- Media Queries para Responsividad --- */
+@media (max-width: 992px) {
+    main {
+        grid-template-columns: 1fr; /* Apila las columnas en pantallas más pequeñas */
+    }
+}
+
+@media (max-width: 768px) {
+    .main-header {
+        flex-direction: column;
+        gap: 1rem;
+        text-align: center;
+    }
+
+    main {
+        padding: 0 1rem;
+    }
+}
