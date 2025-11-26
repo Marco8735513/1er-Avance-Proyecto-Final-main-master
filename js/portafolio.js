@@ -1,4 +1,5 @@
 // Asume que la API se está ejecutando localmente en el puerto 3000.
+import anime from 'https://cdn.jsdelivr.net/npm/animejs@3.2.1/lib/anime.es.js';
 // ¡Asegúrate de cambiar esto a la URL correcta de tu API!
 const API_BASE = "https://portfolio-api-three-black.vercel.app/api/v1";
 
@@ -34,6 +35,14 @@ function renderProjects(projects) {
       ${project.images && project.images.length > 0 ? `<img src="${project.images[0]}" alt="Imagen del proyecto ${project.title}" style="max-width: 100%; border-radius: 5px; margin-top: 10px;">` : ''}
     `;
     projectList.appendChild(projectItem);
+  });
+
+  // Animación con anime.js para los elementos del proyecto
+  anime({
+    targets: '.project-item',
+    opacity: [0, 1],
+    translateY: [20, 0],
+    delay: anime.stagger(100) // Retraso de 100ms entre cada elemento
   });
 }
 
