@@ -37,6 +37,11 @@ main {
     gap: 2rem;
 }
 
+
+.container-design{
+width: 1000px;
+}
+
 /* --- Formulario de Proyectos --- */
 .form-container {
     background-color: #ffffff;
@@ -44,6 +49,8 @@ main {
     border-radius: 8px;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
     align-self: start; /* Para que no se estire */
+    margin: auto 0;
+    margin-bottom: 20px;
 }
 
 .form-container h3 {
@@ -106,6 +113,7 @@ button {
     padding: 2rem;
     border-radius: 8px;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+    grid-column: 1 / -1;
 }
 
 .projects-container h3 {

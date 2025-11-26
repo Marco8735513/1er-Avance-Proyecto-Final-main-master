@@ -17,7 +17,8 @@
 
     <main>
         <!-- Formulario para Proyectos -->
-        <div class="form-container">
+         <div class="container-design">
+            <div class="form-container">
             <h3 id="form-title">Agregar Nuevo Proyecto</h3>
             <form id="project-form">
                 <!-- Campo oculto para guardar el ID del proyecto al editar -->
@@ -27,25 +28,27 @@
                 <textarea id="description" placeholder="Breve descripción" required></textarea>
                 <input type="text" id="technologies" placeholder="Tecnologías (separadas por coma)" required>
                 <input type="text" id="repository" placeholder="URL del Repositorio" required minlength="10">
+                <input type="text" id="images" placeholder="URL de las Imágenes" required minlength="10">
 
                 <button type="submit" id="save-btn">Guardar Proyecto</button>
                 <button type="button" id="cancel-edit-btn" class="hidden">Cancelar Edición</button>
+                <button type="button" id="delete-btn" class="delete-btn hidden">Eliminar Proyecto</button>
             </form>
         </div>
 
+
+        
         <!-- Contenedor para la lista de proyectos -->
         <div class="projects-container">
             <h3>Mis Proyectos</h3>
-            <button class="show-projects" id="show-projects-btn">Mostrar Proyectos</button>
             <div id="projects-list">
                 <!-- Los proyectos se cargarán aquí dinámicamente -->
             </div>
-            <button class="refresh-projects" id="refresh-projects-btn">Actualizar Proyectos</button>
-            <button class="delete-btn" id="delete-btn">Eliminar Proyectos</button>
         </div>
     </main>
 
     <script src="../js/app.js"></script>
+    <script type="module" src="../js/portafolioModel.js"></script>
 </body>
 
 </html>

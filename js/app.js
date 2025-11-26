@@ -123,24 +123,21 @@ document.addEventListener('DOMContentLoaded', () => {
 
       const password = document.querySelector('#password').value;
 
-      login({ email, password })
-        .then(data => {
-          console.log('Login exitoso:', data);
-
-          saveToken(data.token);
-          if (data.user) { 
-            sessionStorage.setItem('usuarioLogueado', JSON.stringify(data.user)); 
-          } else {
-            sessionStorage.removeItem('usuarioLogueado'); 
-          }
-
-
+      (async () => {
+        try {
+          const loginData = await login({ email, password });
+          console.log('Login exitoso, token recibido.');
+          saveToken(loginData.token);
+          
+          const userProfile = await getProfile(loginData.token);
+          sessionStorage.setItem('usuarioLogueado', JSON.stringify(userProfile));
+          
           window.location.href = './main.html';
-        })
-        .catch(error => {
+        } catch (error) {
           console.error('Error en el login:', error);
           errorMessageElement.textContent = error.message;
-        });
+        }
+      })();
     });
   }
 
@@ -222,10 +219,11 @@ document.addEventListener('DOMContentLoaded', () => {
             projectElement.className = 'project-item';
             projectElement.innerHTML = `
           <h4>${project.title}</h4>
-          <p>${project.description}</p>
+          <p class="project-description">${project.description}</p>
           <p><strong>Tecnologías:</strong> ${project.technologies.join(', ')}</p>
           <p><strong>Repositorio:</strong> <a href="${project.repository}" target="_blank" rel="noopener noreferrer">Ver código</a></p>
         `;
+            projectElement.style.cursor = 'pointer'; // Añade un cursor para indicar que es clickeable
             projectElement.dataset.id = project._id;
             projectsList.appendChild(projectElement);
           });
@@ -256,7 +254,9 @@ document.addEventListener('DOMContentLoaded', () => {
             projectForm.reset();
             document.getElementById('projectId').value = '';
             document.getElementById('form-title').textContent = 'Agregar Nuevo Proyecto';
-            document.getElementById('cancel-edit-btn').classList.add('hidden');
+            saveBtn.textContent = 'Guardar Proyecto';
+            cancelBtn.classList.add('hidden');
+            deleteBtn.classList.add('hidden');
             loadProjects();
           } catch (error) {
             console.error('Error al guardar el proyecto:', error);
